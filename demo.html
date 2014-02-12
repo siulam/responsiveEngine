@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="viewport" content="width=device-width">
+<style>
+textarea{visibility:hidden;}
+.nvw780 .tab{width:100%;background:blue;}
+@media all and (max-width: 999px) and (min-width:780px){
+	.tab{width:100%;background:blue;}
+}
+.nvw1000 .tab{width:50%;background:green;}
+@media all and (max-width:1680px) and (min-width:1000px){
+	.tab{width:50%;background:green;}
+}
+</style>
+<script>
+var dt=new Date().getTime(),gt=function(){return new Date().getTime()-dt};
+</script>
+<script charset="gb2312" src="http://res.nie.netease.com/comm/js/jquery(mixNIE).last.js"></script>
+<script src="responsive.js"></script>
+<script>
+(function(){
+var tab1=new templateData("tab-template1");
+tab1.data={a:1,tab:{
+					"标签1":[{txt:"新闻1",link:"#1"},{txt:"新闻2",link:"#2"}],
+					"标签2":[{txt:"新闻3",link:"#3"},{txt:"新闻4",link:"#4"}]
+				}};
+var tab2=new templateData("tab-template2");
+tab2.data={a:1,tab:{
+					"标签2-1":[{txt:"新闻1",link:"#1"},{txt:"新闻2",link:"#2"}],
+					"标签2-2":[{txt:"新闻3",link:"#3"},{txt:"新闻4",link:"#4"}]
+				}};
+responsiveEngine.set(
+	{maxWidth:1680,minWidth:1000,templates:[tab1,tab2]},
+	{maxWidth:999,minWidth:780,templates:[tab1]}
+);
+responsiveEngine.init();
+})();
+</script>
+</head>
+<body>
+
+<h2>模板：tab-template1</h2>
+<textarea id="tab-template1">
+<ul class="tab">
+<% for (var i in tab){ %>
+	<li><%=i%></li>
+<%}%>
+</ul>
+<% for (var i in tab){ %>
+<ul class="tabContent">	
+</ul>
+<%}%>
+<%=a%>
+</textarea>
+
+<div style="height:1000px;"></div>
+
+<h2>模板：tab-template2</h2>
+<textarea id="tab-template2">
+<ul class="tab">
+<% for (var i in tab){ %>
+	<li><%=i%></li>
+<%}%>
+</ul>
+<% for (var i in tab){ %>
+<ul class="tabContent">	
+</ul>
+<%}%>
+</textarea>
+
+<div style="height:1000px;"></div>
+
+<h2>模板：tab-template3</h2>
+<textarea id="tab-template3">
+<ul class="tab">
+<% for (var i in tab){ %>
+	<li><%=i%></li>
+<%}%>
+</ul>
+<% for (var i in tab){ %>
+<ul class="tabContent">	
+</ul>
+<%}%>
+<%=a%>
+
+</textarea>
+</body>
+</html>
