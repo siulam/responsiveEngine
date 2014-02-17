@@ -28,10 +28,13 @@ tab1.data={a:1,tab:{
 					"标签2":[{txt:"新闻3",link:"#3"},{txt:"新闻4",link:"#4"}]
 				}};
 var tab2=new templateData("tab-template2");
-tab2.data={a:1,tab:{
+tab2.data={a:2,tab:{
 					"标签2-1":[{txt:"新闻1",link:"#1"},{txt:"新闻2",link:"#2"}],
 					"标签2-2":[{txt:"新闻3",link:"#3"},{txt:"新闻4",link:"#4"}]
 				}};
+tab2.callBack=function(){
+	console.log("tab2 callback.");
+};
 responsiveEngine.set(
 	{maxWidth:1680,minWidth:1000,templates:[tab1,tab2]},
 	{maxWidth:999,minWidth:780,templates:[tab1]}
@@ -53,7 +56,7 @@ responsiveEngine.init();
 <ul class="tabContent">	
 </ul>
 <%}%>
-<%=a%>
+<p><%=a%></p>
 </textarea>
 
 <div style="height:1000px;"></div>
@@ -69,6 +72,7 @@ responsiveEngine.init();
 <ul class="tabContent">	
 </ul>
 <%}%>
+<p><%=a%></p>
 </textarea>
 
 <div style="height:1000px;"></div>
@@ -84,7 +88,7 @@ responsiveEngine.init();
 <ul class="tabContent">	
 </ul>
 <%}%>
-<%=a%>
+<p><%=a%></p>
 
 </textarea>
 </body>

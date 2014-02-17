@@ -44,8 +44,9 @@ window.matchMedia || (window.matchMedia = function() {
     };
 }());
 var responsive=(function(docEl){
-	var isSupportMeidaQuery=window.matchMedia("only all").matches,
-		isSupportMeidaAddListener=window.matchMedia && !!window.matchMedia("only all").addListener,
+	var _m=window.matchMedia("only all"),
+		isSupportMeidaQuery=_m.matches,
+		isSupportMeidaAddListener=!!_m.addListener,
 		/*
 		 wave 当前viewportWidth是否在media query的【min max】区间
 		*/
@@ -155,6 +156,7 @@ var templateEngine=(function(){
 var templateData=function(templateID){
 	this.templateID=templateID;
 	this.data;
+	this.callBack;
 };
 var responsiveEngine=(function(){
 	/*
@@ -165,9 +167,9 @@ var responsiveEngine=(function(){
 		_widthPoint=[],
 		_currentTemplates=[],
 		_currentTemplateIDs=[],
-		getTemplateDataByID=function(templateID){
+		getTemplateByID=function(templateID){
 			for(var i=0,l=_currentTemplates.length;i<l;i++){
-				if(_currentTemplates[i].templateID==templateID) return _currentTemplates[i].data;
+				if(_currentTemplates[i].templateID==templateID) return _currentTemplates[i];
 			}
 			return null;
 		};
@@ -198,9 +200,10 @@ var responsiveEngine=(function(){
 						$("textarea#"+_currentTemplateIDs.join(",textarea#")).each(function(i){
 							var selfY=$(this).offset().top;
 							if(selfY>=top && selfY<=bot){					
-								var self=$(this),id=self.attr("id"),html=templateEngine.tmpl(id,getTemplateDataByID(id));
+								var self=$(this),id=self.attr("id"),tmp=getTemplateByID(id),html=templateEngine.tmpl(id,tmp.data);
 								$(html).insertBefore(self);
 								self.remove();
+								$.isFunction(tmp.callBack) tmp.callBack();
 							}
 						});
 					};
