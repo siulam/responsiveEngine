@@ -218,7 +218,7 @@ var responsiveEngine=(function(){
 								$(html).insertBefore(self);
 								self.remove();
 								$.isFunction(tmp.callBack) && tmp.callBack();
-								arguments.callee(e,selector,top,bot);
+								lazyload(e,selector,top,bot);
 							}
 						};
 					};
