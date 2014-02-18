@@ -204,17 +204,19 @@ var responsiveEngine=(function(){
 			responsive.init();
 			_widthPoint=null;
 			$(function(){
-				var count=function(selector){						
+				var count=function(selector,top,bot){						
 						var selector=selector||_currentTemplateIDs.join(","),
-							self=$(selector).eq(0);
-						if(self.length>0){
-							var win=$(window),top=win.scrollTop(),bot=win.height()+top,selfY=self.offset().top;
+							top=top||$(window).scrollTop(),
+							bot=bot||$(window).height()+top,							
+							self=$(selector).eq(0),
+							selfY=self.offset().top;
+						if(self.length>0){							
 							if(selfY>=top && selfY<=bot){
 								var id=self.attr("id"),tmp=getTemplateByID(id),html=templateEngine.tmpl(id,tmp.data);
 								$(html).insertBefore(self);
 								self.remove();
 								$.isFunction(tmp.callBack) && tmp.callBack();
-								arguments.callee(selector);
+								arguments.callee(selector,top,bot);
 							}
 						};
 					};
