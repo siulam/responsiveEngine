@@ -207,12 +207,12 @@ var responsiveEngine=(function(){
 			_widthPoint=null;
 			$(function(){
 				var lazyload=function(e,selector,top,bot){						
-						var selector=selector||"#"+_currentTemplateIDs.join(",#"),
-							top=top||$(window).scrollTop(),
-							bot=bot||$(window).height()+top+20,			
+						var selector=selector||"#"+_currentTemplateIDs.join(",#"),								
 							self=$(selector).eq(0);					
 						if(self.length>0){
-							var selfY=self.offset().top;
+							var selfY=self.offset().top,
+								top=top||$(window).scrollTop(),
+								bot=bot||$(window).height()+top+20;
 							if(selfY>=top && selfY<=bot){
 								var id=self.attr("id"),tmp=getTemplateByID(id),html=templateEngine.tmpl(id,tmp.data);
 								$(html).insertBefore(self);
