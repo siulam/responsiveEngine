@@ -114,7 +114,7 @@ var responsive=(function(docEl){
 		},
 		init:function(){
 			if(!isSupportMeidaAddListener){
-				window.onresize=function(){
+				$(window).resize(function(){
 					if(currWidth != docEl.clientWidth || currHeight != docEl.clientHeight) {
 						for(var mediaQuery in listeners){
 							for (var i=0,l=listeners[mediaQuery].length;i<l ;i++ ){								
@@ -125,7 +125,7 @@ var responsive=(function(docEl){
 					}
 					currWidth = docEl.clientWidth;
 					currHeight = docEl.clientHeight;				
-				};	
+				});	
 				changeHtmlClass();
 			}
 		}
@@ -206,7 +206,7 @@ var responsiveEngine=(function(){
 			responsive.init();
 			_widthPoint=null;
 			$(function(){
-				var count=function(e,selector,top,bot){						
+				var lazyload=function(e,selector,top,bot){						
 						var selector=selector||"#"+_currentTemplateIDs.join(",#"),
 							top=top||$(window).scrollTop(),
 							bot=bot||$(window).height()+top,			
@@ -222,8 +222,10 @@ var responsiveEngine=(function(){
 							}
 						};
 					};
-				count();
-				$(window).scroll(count);
+				lazyload();
+				$(window)
+					.scroll(lazyload)
+					.resize(lazyload);
 			});
 		}
 	};
