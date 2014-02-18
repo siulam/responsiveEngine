@@ -158,6 +158,15 @@ var templateData=function(templateID){
 	this.data;
 	this.callBack;
 };
+/*
+https://github.com/faisalman/ua-parser-js/blob/master/src/ua-parser.js
+*/
+var env=(function(ua){
+	return{
+		os:,
+		device:
+	}
+})((window && window.navigator && window.navigator.userAgent) ? window.navigator.userAgent : ""));
 var responsiveEngine=(function(){
 	/*
 	{"(max-width:500px) and (min-width:1024px)":["tab1","news"]}
@@ -197,13 +206,13 @@ var responsiveEngine=(function(){
 			$(function(){
 				var count=function(){
 						var win=$(window),top=win.scrollTop(),bot=win.height()+top;
-						$("textarea#"+_currentTemplateIDs.join(",textarea#")).each(function(i){
+						$("textarea#"+_currentTemplateIDs.join(",textarea#")).each(function(){
 							var selfY=$(this).offset().top;
 							if(selfY>=top && selfY<=bot){					
 								var self=$(this),id=self.attr("id"),tmp=getTemplateByID(id),html=templateEngine.tmpl(id,tmp.data);
 								$(html).insertBefore(self);
 								self.remove();
-								$.isFunction(tmp.callBack) tmp.callBack();
+								$.isFunction(tmp.callBack) && tmp.callBack();
 							}
 						});
 					};
