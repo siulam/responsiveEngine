@@ -206,19 +206,19 @@ var responsiveEngine=(function(){
 			responsive.init();
 			_widthPoint=null;
 			$(function(){
-				var count=function(selector,top,bot){						
-						var selector=selector||_currentTemplateIDs.join(","),
+				var count=function(e,selector,top,bot){						
+						var selector=selector||"#"+_currentTemplateIDs.join(",#"),
 							top=top||$(window).scrollTop(),
-							bot=bot||$(window).height()+top,							
-							self=$(selector).eq(0),
-							selfY=self.offset().top;
-						if(self.length>0){				
+							bot=bot||$(window).height()+top,			
+							self=$(selector).eq(0);					
+						if(self.length>0){
+							var selfY=self.offset().top;
 							if(selfY>=top && selfY<=bot){
 								var id=self.attr("id"),tmp=getTemplateByID(id),html=templateEngine.tmpl(id,tmp.data);
 								$(html).insertBefore(self);
 								self.remove();
 								$.isFunction(tmp.callBack) && tmp.callBack();
-								arguments.callee(selector,top,bot);
+								arguments.callee(e,selector,top,bot);
 							}
 						};
 					};
