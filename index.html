@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>网易游戏门户，网易游戏资讯第一站！</title>
+    <script charset="gb2312" src="http://res.nie.netease.com/comm/js/jquery(mixNIE).last.js"></script>
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <meta name="keywords" content="网易游戏,网易,网游,网络游戏,在线游戏,游戏,回合制,大型角色扮演,回合制,2D,3D,梦幻西游2,大话西游Ⅱ,大话西游,梦幻,大话,魔兽世界,魔兽,wow,天下3,大唐无双2"/>
+    <meta name="description" content="网易在线游戏在中国MMORPG游戏市场保持领先地位！自主研发运营多款在线游戏，包括《大话西游Ⅱ》、《梦幻西游2》、《新大话西游3 》、《武魂》、《天下3》、《大唐无双2》、《倩女幽魂2》、《新飞飞》等。此外，网易还具有《魔兽世界》、《星际争霸Ⅱ》、《魔兽争霸Ⅲ:混乱之治》、《魔兽争霸Ⅲ:冰封王座》在中国大陆的独家运营权。"/>
+    <meta name="author" content="网易，NetEase Inc."/>
+    <meta name="copyright" content="网易，NetEase Inc."/>
+    <meta name="front-end technicist" content="Gseven"/>
+    <link type="text/css" rel="stylesheet" href="http://res.nie.netease.com/nie/gw/13v1/res/css/index.css" media="all"/>
+    <!--[if IE 6]>
+    <script>try {
+        document.execCommand("BackgroundImageCache", false, true);
+    } catch (e) {
+    }</script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://res.nie.netease.com/nie/gw/13v1/res/js/html5shiv.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://res.nie.netease.com/nie/gw/13v1/res/css/holyie.css"
+          media="all"/>
+    <![endif]-->
+    <script>
+        nie.config.stats.clickStats = true;
+    </script>
+    <style>
+         textarea{display: none;}
+         section{display: block;}
+    </style>
+    <script src="js/responsive.js"></script>
+    <script>
+        (function () {
+
+            var headerNav = new templateData("header-tpl");
+            headerNav.data = {
+                link:
+                    [
+                        {text:'首页',link:'/',current:true },
+                        {text:'关于网易游戏',link:'/about',current:false},
+                        {text:'游戏大事记',link:'/honor',current:false},
+                        {text:'人才招聘',link:'http://game.campus.163.com',current:false},
+                        {text:'客服中心',link:'http://gm.163.com',current:false}
+                    ]
+            };
+
+            var newsBox=new templateData("news-tpl");
+            newsBox.data={
+                topOne:{
+                    link:'http://nie.163.com/news/2014/2/13/440_422393.html',
+                    text:'网易在线游戏持续增长 致谢玩家'
+                },
+                list:[
+                    {
+                        link:'http://nie.163.com/news/2014/2/13/440_422385.html',
+                        text:'天下3为你牵线做红娘'
+                    },
+                    {
+                        link:'http://nie.163.com/news/2014/2/13/440_422157.html',
+                        text:'新大外 情人节载你“上电视”'
+                    },
+                    {
+                        link:'http://nie.163.com/news/2014/2/13/440_421571.html',
+                        text:'天庆公测 炉石传说助手狂送10万点！'
+                    },
+                    {
+                        link:'http://nie.163.com/news/2014/2/13/440_421241.html',
+                        text:'网易游戏美女客服团给您拜年'
+                    },
+                    {
+                        link:'http://nie.163.com/news/2014/2/13/440_420911.html',
+                        text:'《龙剑》春节活动齐贺岁'
+                    },
+                    {
+                        link:'http://nie.163.com/news/2014/1/27/440_420893.html',
+                        text:'女神李冰冰给你拜年啦'
+                    }
+                ]
+            };
+
+            var slideBox=new templateData('center-slide-tpl');
+            slideBox.data={
+                picList:[
+                    {link:'http://xy2.163.com/fab/',src:'http://img.nie.163.com/images/2014/2/13/2014-02-13_418513.jpg',alt:'新大话2 老婆在那'},
+                    {link:'http://byy.163.com/',src:'http://img.nie.163.com/images/2014/1/24/2014-01-24_415407.jpg',alt:'代理手游 首作揭秘'},
+                    {link:'http://tx3.163.com/chunwan/',src:'http://img.nie.163.com/images/2014/1/23/2014-01-23_414727.jpg',alt:'天下3 马年春晚'},
+                    {link:'http://nie.163.com/news/2014/1/15/440_418493.html',src:'http://img.nie.163.com/images/2014/1/15/2014-01-15_411127.jpg',alt:'新大话3 新年回馈'},
+                    {link:'http://gad.netease.com/gad/access?project_id=489367&s=WzDMkeDEV%2BkQdPnLoG1gyoxsuVQ%3D&code_type=1',src:'http://img.nie.163.com/images/2013/12/24/2013-12-24_403647.jpg',alt:'迷你西游 万人新服'}
+                ]
+
+            };
+
+            var entranceBox=new templateData('entrance-list-tpl');
+            entranceBox.data={
+                entranceList:[
+                    {link:'http://zs.163.com/hs/',title:'炉石传说助手',desc:'炉石官方推荐助手APP'},
+                    {link:'http://kanyouxi.163.com/nie/',title:'网易看游戏',desc:'看资讯，玩社区'},
+                    {link:'http://pay.163.com/index.jsp',title:'充值服务',desc:'安全，多样，快捷'},
+                    {link:'http://ecard.163.com/script/index',title:'在线购卡',desc:'在线支付，即时使用'},
+                    {link:'http://mkey.163.com/',title:'手机将军令',desc:'帐号安全，一手掌握'},
+                    {link:'http://uu.163.com/',title:'UU加速器',desc:'让您的游戏更顺畅'},
+                    {link:'http://cc.163.com/',title:'CC语音',desc:'沟通无阻，畅玩游戏'},
+                    {link:'http://baike.163.com/',title:'游戏百科',desc:'网易游戏的百科丛书'},
+                    {link:'http://zhidao.163.com/',title:'游戏知道',desc:'游戏知识问答平台'},
+                    {link:'http://cbg.163.com/',title:'藏宝阁',desc:'游戏道具交易系统'},
+                    {link:'http://gs.163.com/fab/',title:'游戏推广员',desc:'参与推广，获游戏大奖'},
+                    {link:'http://gift.163.com/',title:'周边商城',desc:'网易周边，官方正品'},
+                    {link:'http://zs.163.com/hs/',title:'举报中心',desc:'中国网络游戏版权联盟'},
+                    {link:'http://zs.163.com/hs/',title:'网易VIP网吧',desc:'享特权，领奖励'},
+                    {link:'http://zs.163.com/hs/',title:'高校联盟',desc:'社团活动扶持基地'},
+                ]
+            };
+
+            var serviceBox=new templateData('service-list-tpl');
+            serviceBox.data={
+                serviceList:[
+                    {link:'http://gm.163.com/',text:'客户服务'},
+                    {link:'http://mima.163.com/',text:'帐号修复'},
+                    {link:'http://reg.163.com/',text:'更改密码'},
+                    {link:'http://mkey.163.com/',text:'手机将军令'},
+                    {link:'http://mvip.163.com/',text:'手机验证特权'},
+                    {link:'http://cbg.163.com/',text:'藏宝阁'},
+                    {link:'http://zhidao.163.com/',text:'游戏知道'},
+                    {link:'http://box.gm.163.com/',text:'自助百宝箱'}
+                ]
+            }
+
+            var gameListBox=new templateData('game-list-tpl');
+            gameListBox.data={
+                gameList:[
+                    {
+                        title:'西游系列',
+                        className:'xy',
+                        items:[
+                            {link:'http://xyq.163.com',name:'梦幻西游2',isHot:true,isNew:false},
+                            {link:'http://xy2.163.com',name:'新大话西游2',isHot:true,isNew:false},
+                            {link:'http://xy3.163.com',name:'大话西游3',isHot:false,isNew:false},
+                            {link:'http://x3.163.com',name:'新大话西游3',isHot:false,isNew:false},
+                            {link:'http://xdw.163.com',name:'大话外传新篇',isHot:false,isNew:false}
+                        ]
+                    },
+                    {
+                        title:'角色扮演',
+                        className:'cs',
+                        items:[
+                            {link:'http://dtws2.163.com',name:'大唐无双2',isHot:false,isNew:false},
+                            {link:'http://zd.163.com',name:'藏地传奇',isHot:false,isNew:true},
+                            {link:'http://lj.163.com',name:'龙剑',isHot:false,isNew:true},
+                            {link:'http://ty.163.com',name:'天谕',isHot:false,isNew:true},
+                            {link:'http://tx3.163.com',name:'天下3',isHot:false,isNew:false},
+                            {link:'http://wh.163.com',name:'武魂',isHot:false,isNew:false},
+                            {link:'http://zh.163.com',name:'斩魂',isHot:false,isNew:false},
+                            {link:'http://qn2.163.com',name:'倩女幽魂2',isHot:false,isNew:false},
+                            {link:'http://www.battlenet.com.cn/features/zh/landing/wow',name:'魔兽世界',isHot:false,isNew:false},
+                            {link:'http://ff.163.com',name:'新飞飞',isHot:false,isNew:false},
+                            {link:'http://jl.163.com',name:'精灵传说',isHot:false,isNew:false}
+                        ]
+                    },
+                    {
+                        title:'竞技对战',
+                        className:'jj',
+                        items:[
+                            {link:'http://sc2.163.com/landing',name:'星际争霸2',isHot:false,isNew:false},
+                            {link:'http://y3.163.com',name:'英雄三国',isHot:true,isNew:false}
+                        ]
+                    },
+                    {
+                        title:'射击游戏',
+                        className:'shoot',
+                        items:[
+                            {link:'http://wj.163.com',name:'危机2015',isHot:false,isNew:true},
+                            {link:'http://bl.163.com',name:'爆裂天空',isHot:false,isNew:true}
+                        ]
+                    },
+                    {
+                        title:'手游',
+                        className:'mg',
+                        items:[
+                            {link:'http://xym.163.com',name:'迷你西游',isHot:true,isNew:false},
+                            {link:'http://byy.163.com',name:'塔防骑士团',isHot:false,isNew:true}
+                        ]
+                    },
+                    {
+                        title:'休闲游戏',
+                        className:'xx',
+                        items:[
+                            {link:'http://www.hearthstone.com.cn/',name:'炉石传说',isHot:false,isNew:false},
+                            {link:'http://xc.163.com',name:'游戏星城',isHot:false,isNew:false}
+                        ]
+                    }
+                ]
+            }
+            responsiveEngine.set(
+                    /*for PC*/
+                    {maxWidth: 1920, minWidth: 1000, templates: [headerNav,slideBox,newsBox,entranceBox,serviceBox,gameListBox]},
+                    /*for Pad*/
+                    {maxWidth: 999, minWidth: 768, templates: [headerNav,slideBox,newsBox,entranceBox,serviceBox]},
+                    /*for phone*/
+                    {maxWidth: 767, minWidth: 240, templates: [headerNav,slideBox,serviceBox,newsBox,entranceBox]}
+            );
+            responsiveEngine.init();
+        })();
+    </script>
+    <script src="http://res.nie.netease.com/nie/gw/13v1/res/js/index.js"></script>
+</head>
+<body>
+
+        <textarea id="header-tpl">
+            <header class="header">
+                <div class="row">
+                    <h1 class="header-logo">网易游戏</h1>
+                    <nav class="header-nav">
+                        <% for(var i=0;i< link.length;i++){ %>
+                        <a  <% if (link[i].current==true){%> class="current" <%}%> href="<%=link[i].link%>"><%=link[i].text%></a>
+                            <% if(i!=link.length-1){%>
+                            <span>|</span>
+                            <%}%>
+                        <%}%>
+                    </nav>
+                    <a class="header-btn header-btn-reg" href="http://reg.163.com/" target="_blank">注册帐号</a>
+                    <a class="header-btn header-btn-pay" href="http://pay.163.com/" target="_blank">购卡充值</a>
+                </div>
+            </header>
+        </textarea>
+
+<section class="center" id="center">
+    <div class="row">
+        <textarea id="center-slide-tpl">
+            <section class="center-slide">
+                <div class="center-slide-box">
+                    <% for(var i=0;i< picList.length;i++){ %>
+                    <a href="<%=picList[i].link%>" target="_blank"><img src="<%=picList[i].src%>" alt="<%=picList[i].alt%>"/></a>
+                    <%}%>
+                    <span class="slide-next"></span>
+                    <span class="slide-prev"></span>
+                </div>
+                <ul class="center-slide-nav">
+                    <% for(var i=0;i< picList.length;i++){ %>
+                        <li>
+                            <a href="javascript:;" class="default">
+                                <span class="num">1</span>
+                                <div class="progress">
+                                    <div class="progress-inner"></div>
+                                </div>
+                                <span class="title"><%=picList[i].alt%></span>
+                            </a>
+                            <a href="javascript:;" class="hover">
+                                <div class="mask"></div>
+                                <img src="<%=picList[i].src%>">
+                                <div class="content">
+                                    <p><%=picList[i].alt%></p>
+                                    <span>查看详情<i></i></span>
+                                </div>
+                            </a>
+                        </li>
+                    <%}%>
+                </ul>
+                <ul class="center-slide-res-nav">
+
+                    <% for(var i=0;i< picList.length;i++){ %>
+                        <li><a href="javascript"></a></li>
+                    <%}%>
+                </ul>
+            </section>
+        </textarea>
+                <textarea id="news-tpl">
+                    <section class="center-news">
+                        <div class="title">
+                            <span class="title-top"></span>
+                            <span class="title-main">新闻</span>
+                            <a class="more" href="http://nie.163.com/news/" target="_blank">查看更多<span class="more-icon"></span></a>
+                        </div>
+                        <div class="content">
+                        <a class="con-f" href="<%=topOne.link%>" target="_blank"><%=topOne.text%></a>
+                        <ul class="con">
+                            <% for(var i=0;i< list.length;i++){ %>
+                                <li><a href="<%=list[i].link%>" target="_blank"><%=list[i].text%></a></li>
+                            <%}%>
+
+                        </ul>
+                        </div>
+                    </section>
+                </textarea>
+    </div>
+</section>
+<textarea id="game-list-tpl">
+    <section class="game-list">
+        <div class="row">
+            <h2><span>游戏列表</span></h2>
+            <div class="game-list-border"></div>
+            <p class="game-list-icon-desc">
+                <span class="game-list-icon-hot"></span>热门游戏
+                <span class="game-list-icon-new"></span>最新游戏
+            </p>
+            <% for(var i=0;i< gameList.length;i++){%>
+                <section class="game-list-cont game-list-<%=gameList[i].className%>">
+                    <h3><%=gameList[i].title%></h3>
+                    <ul class="game-list-<%=gameList[i].className%>-ul">
+                        <% for(var j=0;j< gameList[i].items.length;j++){%>
+                            <li><a href="<%=gameList[i].items[j].link%>" target="_blank"><%=gameList[i].items[j].name%>
+                                <% if(gameList[i].items[j].isHot){%><span class="game-list-icon-hot"></span><%}%>
+                                <% if(gameList[i].items[j].isNew){%><span class="game-list-icon-new"></span><%}%>
+                            </a></li>
+                        <%}%>
+                    </ul>
+                </section>
+
+            <%}%>
+        </div>
+    </section>
+</textarea>
+
+<textarea id="entrance-list-tpl">
+    <section class="entrance-list">
+        <div class="row">
+            <ul class="entrance-list-ul">
+                <% for(var i=0;i< entranceList.length;i++){%>
+                    <li>
+                        <a href="<%=entranceList[i].link%>" target="_blank">
+                            <span class="entrance-list-icon"></span>
+                            <h3><%=entranceList[i].title%></h3><span><%=entranceList[i].desc%></span>
+                        </a>
+                    </li>
+                <%}%>
+            </ul>
+            <ul class="entrance-list-nav">
+                <li><span class="entrance-list-prev"><</span></li>
+                <% for(var i=0;i< entranceList.length;i+=4){%>
+                    <li><a href="javascript:;" <%if(i==0){%>class="current" <%}%> ></a></li>
+                <% }%>
+                <li><span class="entrance-list-next">></span></li>
+            </ul>
+        </div>
+    </section>
+</textarea>
+<textarea id="service-list-tpl">
+    <section class="service-list">
+        <div class="row">
+            <div class="service-list-links">
+                <span class="service-list-links-title">客户服务<i> ></i> </span>
+                <p>
+                    <% for(var i=0;i< serviceList.length;i++){%>
+                        <a href="<%=serviceList[i].link%>" target="_blank"><%=serviceList[i].text%></a>
+                        <%if(i!=serviceList.length-1){%><span class="line"></span><%}%>
+                    <%}%>
+                </p>
+            </div>
+            <p class="service-list-phone">
+                <span>客服电话 <i>></i> </span>
+                020-83918160
+            </p>
+        </div>
+    </section>
+</textarea>
+
+<footer id="footer">
+    <div class="copyright" id="NIE-copyRight"></div>
+</footer>
+</body>
+</html>
