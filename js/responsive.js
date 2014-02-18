@@ -209,7 +209,7 @@ var responsiveEngine=(function(){
 				var lazyload=function(e,selector,top,bot){						
 						var selector=selector||"#"+_currentTemplateIDs.join(",#"),
 							top=top||$(window).scrollTop(),
-							bot=bot||$(window).height()+top,			
+							bot=bot||$(window).height()+top+20,			
 							self=$(selector).eq(0);					
 						if(self.length>0){
 							var selfY=self.offset().top;
