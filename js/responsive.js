@@ -161,12 +161,14 @@ var templateData=function(templateID){
 /*
 https://github.com/faisalman/ua-parser-js/blob/master/src/ua-parser.js
 */
+/*
 var env=(function(ua){
 	return{
 		os:,
 		device:
 	}
 })((window && window.navigator && window.navigator.userAgent) ? window.navigator.userAgent : ""));
+*/
 var responsiveEngine=(function(){
 	/*
 	{"(max-width:500px) and (min-width:1024px)":["tab1","news"]}
@@ -210,7 +212,7 @@ var responsiveEngine=(function(){
 							bot=bot||$(window).height()+top,							
 							self=$(selector).eq(0),
 							selfY=self.offset().top;
-						if(self.length>0){							
+						if(self.length>0){				
 							if(selfY>=top && selfY<=bot){
 								var id=self.attr("id"),tmp=getTemplateByID(id),html=templateEngine.tmpl(id,tmp.data);
 								$(html).insertBefore(self);
